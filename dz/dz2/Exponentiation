@@ -57,4 +57,11 @@ public class Exponentiation {
         result = String.valueOf(1 / temp);
         return result;
     }
+
+    public static void writeFile(String string) throws FileNotFoundException {
+        File file = new File("output.txt");
+        PrintWriter pw = new PrintWriter(file);
+        pw.println(string);
+        pw.close();
+    }
 }
