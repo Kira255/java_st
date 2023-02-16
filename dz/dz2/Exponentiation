@@ -17,5 +17,26 @@ public class Exponentiation {
         else
             writeFile(positivPow(a, b));
     }
+
+    public static int[] readFile() throws FileNotFoundException {
+
+        File file = new File("input.txt");
+        Scanner scanner = new Scanner(file);
+        String line = scanner.nextLine();
+        int[] intArray = new int[2];
+        String[] stringArray = line.split(" ");
+        if (stringArray[0] == "a") {
+            intArray[0] = Integer.parseInt(stringArray[1]);
+            stringArray = scanner.nextLine().split(" ");
+            intArray[1] = Integer.parseInt(stringArray[1]);
+        } else {
+            intArray[1] = Integer.parseInt(stringArray[1]);
+            stringArray = scanner.nextLine().split(" ");
+            intArray[0] = Integer.parseInt(stringArray[1]);
+        }
+        scanner.close();
+        return intArray;
+    }
+
     
 }
