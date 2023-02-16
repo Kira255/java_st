@@ -38,5 +38,13 @@ public class Exponentiation {
         return intArray;
     }
 
-    
+    public static String positivPow(int a, int b) {
+        int temp = 1;
+        String result = "";
+        for (int i = 0; i < b; i++) {
+            temp *= a;
+        }
+        result = String.valueOf(temp);
+        return result;
+    }
 }
