@@ -38,4 +38,12 @@ public class MergeSort {
             index = index + 1;
         }
     }
+
+    // Реализация отсортированного массива
+    public static int[] mergesort(int[] array1) {
+        int[] buffer1 = Arrays.copyOf(array1, array1.length);
+        int[] buffer2 = new int[array1.length];
+        int[] result = mergesortInner(buffer1, buffer2, 0, array1.length);
+        return result;
+    }
 }
