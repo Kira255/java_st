@@ -18,4 +18,9 @@ public class MergeSort {
         int[] result = mergesort(items);
         System.out.println(Arrays.toString(result));
     }
+
+    // Ввод числа
+    public static int[] createArray(int size) {
+        return new int[size];
+    }
 }
