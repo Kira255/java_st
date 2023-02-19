@@ -23,4 +23,9 @@ public class MergeSort {
     public static int[] createArray(int size) {
         return new int[size];
     }
+
+    public static int getNumberByUser(String text) {
+        System.out.print(text);
+        return input.nextInt();
+    }
 }
