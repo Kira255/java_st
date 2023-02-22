@@ -43,4 +43,24 @@ public class HeapSort {
         }
         return (myArray);
     }
+
+    public static void heapify(int[] myArray, int i, int heapSize) {
+        int a = 2 * i;
+        int b = 2 * i + 1;
+        int largestElement;
+        if (a <= heapSize && myArray[a] > myArray[i]) {
+            largestElement = a;
+        } else {
+            largestElement = i;
+        }
+        if (b <= heapSize && myArray[b] > myArray[largestElement]) {
+            largestElement = b;
+        }
+        if (largestElement != i) {
+            int temp = myArray[i];
+            myArray[i] = myArray[largestElement];
+            myArray[largestElement] = temp;
+            heapify(myArray, largestElement, heapSize);
+        }
+    }
 }
