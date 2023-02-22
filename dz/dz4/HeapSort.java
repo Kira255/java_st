@@ -16,4 +16,13 @@ public class HeapSort {
         return input.nextInt();
     }
 
+    // Заполнение массива
+    public static void fillArray(int[] col, int min, int max) {
+        int count = col.length;
+        int index = 0;
+        while (index < count) {
+            col[index] = random.nextInt(min, max);
+            index = index + 1;
+        }
+    }
 }
