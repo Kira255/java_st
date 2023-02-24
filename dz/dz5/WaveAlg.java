@@ -118,4 +118,21 @@ public class WaveAlg {
             System.out.println("x = " + i.x + ", y = " + i.y);
         }
     }
+
+    public void traceOut() { // вывод таблицы
+        String m = null;
+        System.out.print("   ");
+        for (int i = 0; i < height; i++) { // вывод верхней нумерации
+            System.out.print(i > 9 ? i + " " : i + "  ");
+        }
+        System.out.println();
+        for (int i = 0; i < width; i++) {
+            m = i > 9 ? i + " " : i + "  "; // вывод боковой нумерации
+            for (int j = 0; j < height; j++) {
+                m += map[i][j] > 9 || map[i][j] < 0 ? map[i][j] + " " : map[i][j] + "  ";
+            }
+            System.out.println(m);
+        }
+
+    }
 }
