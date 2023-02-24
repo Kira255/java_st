@@ -102,4 +102,14 @@ public class WaveAlg {
             map[i.y][i.x] = 0;
         }
     }
+
+    private class Point {
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public int x;
+        public int y;
+    }
 }
