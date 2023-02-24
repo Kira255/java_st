@@ -38,4 +38,68 @@ public class WaveAlg {
     public void block(int x, int y) {
         map[y][x] = wall;
     }
+
+    // нахождение препятствий
+    public void findPath(int x, int y, int nx, int ny) {
+        if (map[y][x] == wall || map[ny][nx] == wall) {
+            System.out.println("Вы выбрали препятствие!");
+            return;
+        }
+
+        // волновой алгоритм поиска пути (заполнение значений достижимости)
+        int[][] cloneMap = clone(map);
+        List<Point> oldWave = new ArrayList<Point>();
+        oldWave.add(new Point(nx, ny));
+        int nstep = 0;
+        map[ny][nx] = nstep;
+
+        int[] dx = { 0, 1, 0, -1 };
+        int[] dy = { -1, 0, 1, 0 };
+
+        while (oldWave.size() > 0) {
+            nstep++;
+            wave.clear();
+            for (Point i : oldWave) {
+                for (int d = 0; d < 4; d++) {
+                    nx = i.x + dx[d];
+                    ny = i.y + dy[d];
+
+                    if (map[ny][nx] == -1) {
+                        wave.add(new Point(nx, ny));
+                        map[ny][nx] = nstep;
+                    }
+                }
+            }
+            oldWave = new ArrayList<Point>(wave);
+        }
+
+        // волновой алгоритм поиска пути начиная от начала
+        boolean flag = true;
+        wave.clear();
+        wave.add(new Point(x, y));
+        while (map[y][x] != 0) {
+            flag = true;
+            for (int d = 0; d < 4; d++) {
+                nx = x + dx[d];
+                ny = y + dy[d];
+                if (map[y][x] - 1 == map[ny][nx]) {
+                    x = nx;
+                    y = ny;
+                    wave.add(new Point(x, y));
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                System.out.println("Пути нет!");
+                break;
+            }
+        }
+
+        map = cloneMap;
+
+        for (Point i : wave) {
+            map[i.y][i.x] = 0;
+        }
+    }
 }
