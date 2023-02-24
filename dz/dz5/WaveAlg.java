@@ -5,6 +5,8 @@ import java.util.List;
 
 public class WaveAlg {
 
+    private static Scanner scan = new Scanner(System.in);
+
     public static void main(String[] args) {
 
         int x = 0;
@@ -19,7 +21,6 @@ public class WaveAlg {
         Path.traceOut();
         System.out.println();
 
-        Scanner scan = new Scanner(System.in);
         try {
             System.out.println("Введите x начала ");
             x = scan.nextInt();
