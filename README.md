@@ -4,3 +4,4 @@
 3. DZ3 - https://github.com/Kira255/java_st/blob/main/dz/dz3/MergeSort.java
 4. DZ4 - https://github.com/Kira255/java_st/blob/main/dz/dz4/HeapSort.java
 5. DZ5 - https://github.com/Kira255/java_st/blob/main/dz/dz5/WaveAlg.java
+6. DZ6 - https://github.com/Kira255/java_st/tree/main/dz/dz6
