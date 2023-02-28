@@ -134,4 +134,12 @@ public class WaveAlg {
         }
 
     }
+
+    private int[][] clone(int[][] map) {
+        int[][] cloneMap = new int[width][height];
+        for (int i = 0; i < map.length; i++)
+            for (int j = 0; j < map[i].length; j++)
+                cloneMap[i][j] = map[i][j];
+        return cloneMap;
+    }
 }
