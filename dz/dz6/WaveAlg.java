@@ -111,4 +111,10 @@ public class WaveAlg {
         public int x;
         public int y;
     }
+
+    public void waveOut() { // вывод координат пути
+        for (Point i : wave) {
+            System.out.println("x = " + i.x + ", y = " + i.y);
+        }
+    }
 }
