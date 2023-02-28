@@ -5,4 +5,6 @@ import java.util.InputMismatchException;
 
 public class Program {
 
+    private static Scanner scan = new Scanner(System.in);
+
 }
