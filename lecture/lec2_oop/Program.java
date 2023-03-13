@@ -11,10 +11,33 @@
 */
 package lec2_oop;
 
+import lec2_oop.Figures.Circle;
+import lec2_oop.Figures.Rectangle;
+import lec2_oop.Figures.Square;
+import lec2_oop.Figures.Triangle;
+import lec2_oop.Figures.Base.Figure;
+import lec2_oop.Figures.Base.Lenghtable;
+import lec2_oop.Figures.Base.Perimet;
+
 public class Program {
     public static void main(String[] args) {
 
-        Circle circle = new Circle();
+        Figure[] figures = { new Triangle(), new Circle(), new Rectangle(), new Square() };
+        for (Figure figute : figures)
+            printFig(figute);
     }
 
+    private static void printFig(Figure figure) {
+        System.out.println(figure);
+        System.out.println(String.format("Площадь: %f", figure.square()));
+        if (figure instanceof Lenghtable) {
+            Lenghtable l = (Lenghtable) figure;
+            System.out.println(String.format("Длина окр: %f", l.length()));
+        }
+        if (figure instanceof Perimet) {
+            Perimet p = (Perimet) figure;
+            System.out.println(String.format("Периметр: %f", p.perimeter()));
+        }
+
+    }
 }
