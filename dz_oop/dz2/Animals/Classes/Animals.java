@@ -17,9 +17,7 @@ public class Animals implements Sound {
 
     @Override
     public String toString() {
-        return String.format(
-                "Type: %s, Height: %f, Weight: %f, Eye color: %s.",
-                this.type, this.height, this.weight, this.eyeColor);
+        return String.format("Type: %s, Height: %f, Weight: %f, Eye color: %s.", this.type, this.height, this.weight, this.eyeColor);
     }
 
     public String getType() {
