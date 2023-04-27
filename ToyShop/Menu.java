@@ -29,6 +29,17 @@ public class Menu {
         System.out.println("-".repeat(s1.length()));
     }
 
+    public void showMainMenu() {
+        // меню
+        String s1 = "Главное меню";
+        System.out.println("\n" + s1 + "\n" + "-".repeat(s1.length()));
+        System.out.println("1. Покупатели.");
+        System.out.println("2. Игрушки.");
+        System.out.println("3. Розыгрыш призов.");
+        System.out.println("X. Выход из программы.");
+        ResetMenuPos();
+    }
+
     // методы для обработки меню - Покупатели
     public void BuyersShowTableAll() {
         BuyerMod buyersModel = new BuyerMod();
