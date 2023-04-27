@@ -71,6 +71,29 @@ public class Menu {
         return true;
     }
 
+    public boolean ToyDeleteById() {
+        // удаление игрушки
+        ToyMod toysModel = new ToyMod();
+        if (toysModel.load()) {
+            ToysView toysView = new ToysView(toysModel.getToysAll());
+            toysView.ShowTable();
+        }
+        System.out.print("\nВведите id для удаляения игрушки: ");
+        try {
+            int curId = Integer.parseInt(sc.nextLine());
+            // удаляем запись
+            if (toysModel.deleteById(curId)) {
+                // сохраняем данные в файл
+                toysModel.save();
+                return true;
+            }
+        } catch (Exception ex) {
+            System.out.println("Ошибка при удалении игрушки.\n" + ex.toString());
+            return false;
+        }
+        return false;
+    }
+
     // методы для обработки меню - Розыгрыш призов
     public void PrizesToAwardShowAll() {
         // разыгранные призы
