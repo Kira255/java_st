@@ -83,6 +83,10 @@ public class Menu {
         System.out.println("Завершение работы");
     }
 
+    public void showMenuItemNotFound() {
+        System.out.println("Не найден обработчик для указанного пункта меню.");
+    }
+
     // методы для обработки меню - Покупатели
     public void BuyersShowTableAll() {
         BuyerMod buyersModel = new BuyerMod();
