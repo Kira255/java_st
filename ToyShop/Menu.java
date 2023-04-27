@@ -53,4 +53,8 @@ public class Menu {
         return choice;
     }
 
+    public void setChoice(String choice) {
+        this.choice = choice;
+    }
+
 }
