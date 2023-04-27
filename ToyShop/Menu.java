@@ -40,6 +40,19 @@ public class Menu {
         ResetMenuPos();
     }
 
+    public void showBuyersMenu() {
+        // меню Покупатели
+        String s1 = "Меню-Таблица Покупатели (Участники розыгрыша)";
+        System.out.println("\n" + s1 + "\n" + "-".repeat(s1.length()));
+        System.out.println("1. Показать таблицу.");
+        System.out.println("2. Добавить покупателя.");
+        System.out.println("3. Редактировать покупателя.");
+        System.out.println("4. Удалить покупателя.");
+        System.out.println("0. Возвращение в Главное меню.");
+        System.out.println("X. Выход.");
+        setPrevPos(getNewPos());
+    }
+
     // методы для обработки меню - Покупатели
     public void BuyersShowTableAll() {
         BuyerMod buyersModel = new BuyerMod();
