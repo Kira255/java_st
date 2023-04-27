@@ -66,6 +66,18 @@ public class Menu {
         setPrevPos(getNewPos());
     }
 
+    public void showDrawingMenu() {
+        // меню Розыгрыш призов
+        System.out.println("\nМеню-Розыгрыш призов\n----------------");
+        System.out.println("1. Показать таблицу-Разыгранные призы.");
+        System.out.println("2. Разыграть следующий приз.");
+        System.out.println("3. Отметить приз как врученный.");
+        System.out.println("4. Показать таблицу-Врученные призы.");
+        System.out.println("0. Возвращение в Главное меню.");
+        System.out.println("X. Выход.");
+        setPrevPos(getNewPos());
+    }
+
     // методы для обработки меню - Покупатели
     public void BuyersShowTableAll() {
         BuyerMod buyersModel = new BuyerMod();
