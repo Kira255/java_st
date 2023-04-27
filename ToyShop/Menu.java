@@ -94,6 +94,59 @@ public class Menu {
         return false;
     }
 
+    public boolean ToyEdit() {
+        // pедактирование игрушки
+        Toy editedToy;
+        // список игрушек
+        ToyMod toysModel = new ToyMod();
+        if (toysModel.load()) {
+            ToysView toysView = new ToysView(toysModel.getToysAll());
+            toysView.ShowTable();
+        }
+        System.out.print("\nВведите id редактируемой игрушки: ");
+        try {
+            int curId = Integer.parseInt(sc.nextLine());
+            editedToy = toysModel.getToyById(curId);
+            String curValue;
+            System.out.print("Название: " +
+                    editedToy.getName() +
+                    "\nНовое значение: ");
+            curValue = sc.nextLine();
+            if (!curValue.equals(""))
+                editedToy.setName(curValue);
+
+            System.out.print("Количество: " +
+                    editedToy.getCount() +
+                    "\nНовое значение: ");
+            curValue = sc.nextLine();
+            if (!curValue.equals(""))
+                editedToy.setCount(Integer.parseInt(curValue));
+
+            System.out.print("Цена: " +
+                    editedToy.getPrice() +
+                    "\nНовое значение: ");
+            curValue = sc.nextLine();
+            if (!curValue.equals(""))
+                editedToy.setPrice(Float.parseFloat(curValue));
+
+            System.out.print("Вес: " +
+                    editedToy.getWeight() +
+                    "\nНовое значение: ");
+            curValue = sc.nextLine();
+            if (!curValue.equals(""))
+                editedToy.setWeight(Integer.parseInt(curValue));
+            if (toysModel.save()) {
+                System.out.println("Игрушка с id=" + curId + " отредактирована.");
+                return true;
+            }
+
+        } catch (Exception ex) {
+            System.out.println("Ошибка при редактировании игрушки.\n" + ex.toString());
+            return false;
+        }
+        return false;
+    }
+
     // методы для обработки меню - Розыгрыш призов
     public void PrizesToAwardShowAll() {
         // разыгранные призы
