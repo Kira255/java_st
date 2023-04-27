@@ -29,4 +29,10 @@ public class Menu {
         formatter = DateTimeFormatter.ofPattern(
                 "dd.MM.yyyy HH:mm");
     }
+
+    public void ReturnToPrevPos() {
+        newPos = prevPos;
+        choice = "";
+    }
+
 }
