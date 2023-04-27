@@ -53,6 +53,19 @@ public class Menu {
         setPrevPos(getNewPos());
     }
 
+    public void showToysMenu() {
+        // меню Игрушки
+        String s1 = "Меню-Таблица Игрушки";
+        System.out.println("\n" + s1 + "\n" + "-".repeat(s1.length()));
+        System.out.println("1. Показать таблицу.");
+        System.out.println("2. Добавить игрушку.");
+        System.out.println("3. Редактировать игрушку.");
+        System.out.println("4. Удалить игрушку.");
+        System.out.println("0. Возвращение в Главное меню.");
+        System.out.println("X. Выход.");
+        setPrevPos(getNewPos());
+    }
+
     // методы для обработки меню - Покупатели
     public void BuyersShowTableAll() {
         BuyerMod buyersModel = new BuyerMod();
