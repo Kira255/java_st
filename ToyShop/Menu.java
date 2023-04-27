@@ -35,4 +35,10 @@ public class Menu {
         choice = "";
     }
 
+    public void ResetMenuPos() {
+        prevPos = "";
+        choice = "";
+        newPos = "";
+    }
+
 }
