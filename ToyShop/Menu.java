@@ -38,6 +38,16 @@ public class Menu {
             return false;
         }
 
+        public void PrizesAwardedShowAll() {
+            // разыгранные призы
+            DrawMod drawingModel = new DrawMod();
+            if (drawingModel.loadPrizesAwarded()) {
+                drawingModel.ShowTablePrizesAwarded();
+            }
+            ReturnToPrevPos();
+            showDrawingMenu();
+        }
+    
         
     }
 
