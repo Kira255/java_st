@@ -202,7 +202,7 @@ public class Menu {
 
     public void showBuyersMenu() {
         // меню Покупатели
-        String s1 = "Меню-Таблица Покупатели (Участники розыгрыша)";
+        String s1 = "Меню - Покупатели (Участники розыгрыша)";
         System.out.println("\n" + s1 + "\n" + "-".repeat(s1.length()));
         System.out.println("1. Показать таблицу.");
         System.out.println("2. Добавить покупателя.");
@@ -215,7 +215,7 @@ public class Menu {
 
     public void showToysMenu() {
         // меню Игрушки
-        String s1 = "Меню-Таблица Игрушки";
+        String s1 = "Меню - Игрушки";
         System.out.println("\n" + s1 + "\n" + "-".repeat(s1.length()));
         System.out.println("1. Показать таблицу.");
         System.out.println("2. Добавить игрушку.");
@@ -228,7 +228,7 @@ public class Menu {
 
     public void showDrawingMenu() {
         // меню Розыгрыш призов
-        System.out.println("\nМеню-Розыгрыш призов\n----------------");
+        System.out.println("\nМеню - Розыгрыш призов\n----------------");
         System.out.println("1. Показать таблицу-Разыгранные призы.");
         System.out.println("2. Разыграть следующий приз.");
         System.out.println("3. Отметить приз как врученный.");
@@ -244,7 +244,7 @@ public class Menu {
     }
 
     public void showMenuItemNotFound() {
-        System.out.println("Не найден обработчик для указанного пункта меню.");
+        System.out.println("Некорректный выбор пункта меню.");
     }
 
     // методы для обработки меню - Покупатели
