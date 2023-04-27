@@ -33,6 +33,14 @@ public class Menu {
         showBuyersMenu();
     }
 
+    public boolean BuyerAddNew() {
+        // добавление покупателя
+        BuyerMod buyersModel = new BuyerMod();
+        if (!buyersModel.load()) {
+            System.out.println("\nФункция добавления покупателя прервана.");
+            return false;
+        }
+
     // методы для обработки меню - Игрушки
     public void ToysShowTableAll() {
         // форимрование списка игрушек, вывод в консоль
