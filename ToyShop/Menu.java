@@ -22,6 +22,19 @@ public class Menu {
     private Scanner sc;
     DateTimeFormatter formatter; // формат для даты и времени
 
+    // методы для обработки меню - Игрушки
+    public void ToysShowTableAll() {
+        // форимрование списка игрушек, вывод в консоль
+        ToyMod toysModel = new ToyMod();
+        if (toysModel.load()) {
+            ToysView toysView = new ToysView(toysModel.getToysAll());
+            toysView.ShowTable();
+        }
+
+        ReturnToPrevPos();
+        showToysMenu();
+    }
+
     // методы для обработки меню - Розыгрыш призов
     public void PrizesToAwardShowAll() {
         // разыгранные призы
@@ -30,6 +43,8 @@ public class Menu {
             drawingModel.ShowTablePrizesToAward();
         }
         ReturnToPrevPos();
+
+    }
 
     public boolean PrizeAddNew() {
         DrawMod drawingModel = new DrawMod();
@@ -84,17 +99,28 @@ public class Menu {
         return false;
     }
 
-    public Menu() {
-        prevPos = "";
-        choice = "";
-        newPos = "";
-        formatter = DateTimeFormatter.ofPattern(
-                "dd.MM.yyyy HH:mm");
+    public String getPrevPos() {
+        return prevPos;
     }
 
-    public void ReturnToPrevPos() {
-        newPos = prevPos;
-        choice = "";
+    public String getChoice() {
+        return choice;
+    }
+
+    public String getNewPos() {
+        return newPos;
+    }
+
+    public void setPrevPos(String prevPos) {
+        this.prevPos = prevPos;
+    }
+
+    public void setChoice(String choice) {
+        this.choice = choice;
+    }
+
+    public void setNewPos(String newPos) {
+        this.newPos = newPos;
     }
 
     public void ResetMenuPos() {
@@ -103,28 +129,17 @@ public class Menu {
         newPos = "";
     }
 
-    public String getNewPos() {
-        return newPos;
+    public void ReturnToPrevPos() {
+        newPos = prevPos;
+        choice = "";
     }
 
-    public void setNewPos(String newPos) {
-        this.newPos = newPos;
-    }
-
-    public String getChoice() {
-        return choice;
-    }
-
-    public void setChoice(String choice) {
-        this.choice = choice;
-    }
-
-    public String getPrevPos() {
-        return prevPos;
-    }
-
-    public void setPrevPos(String prevPos) {
-        this.prevPos = prevPos;
+    public Menu() {
+        prevPos = "";
+        choice = "";
+        newPos = "";
+        formatter = DateTimeFormatter.ofPattern(
+                "dd.MM.yyyy HH:mm");
     }
 
 }
