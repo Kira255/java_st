@@ -57,4 +57,12 @@ public class Menu {
         this.choice = choice;
     }
 
+    public String getPrevPos() {
+        return prevPos;
+    }
+
+    public void setPrevPos(String prevPos) {
+        this.prevPos = prevPos;
+    }
+
 }
