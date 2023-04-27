@@ -66,6 +66,29 @@ public class Menu {
         return true;
     }
 
+    public boolean BuyerDeleteById() {
+        // удаление покупателя
+        BuyerMod buyersModel = new BuyerMod();
+        if (buyersModel.load()) {
+            BuyersView buyersView = new BuyersView(buyersModel.getBuyersAll());
+            buyersView.ShowTable();
+        }
+        System.out.print("\nВведите id удаляемого покупателя: ");
+        try {
+            int curId = Integer.parseInt(sc.nextLine());
+            // удаляем запись
+            if (buyersModel.deleteById(curId)) {
+                // сохраняем данные в файл
+                buyersModel.save();
+                return true;
+            }
+        } catch (Exception ex) {
+            System.out.println("Ошибка при удалении покупателя.\n" + ex.toString());
+            return false;
+        }
+        return false;
+    }
+
     // методы для обработки меню - Игрушки
     public void ToysShowTableAll() {
         // форимрование списка игрушек, вывод в консоль
