@@ -89,6 +89,52 @@ public class Menu {
         return false;
     }
 
+    public boolean BuyerEdit() {
+        // редактирование данных покупателя
+        Buyer editedBuyer;
+        BuyerMod buyersModel = new BuyerMod();
+        if (buyersModel.load()) {
+            BuyersView buyersView = new BuyersView(buyersModel.getBuyersAll());
+            buyersView.ShowTable();
+        }
+        System.out.print("\nВведите id редактируемого покупателя: ");
+        try {
+            int curId = Integer.parseInt(sc.nextLine());
+            editedBuyer = buyersModel.getBuyerById(curId);
+            String curValue;
+            // ввод новых значений полей
+            System.out.print("ФИО: " +
+                    editedBuyer.getName() +
+                    "\nНовое значение: ");
+            curValue = sc.nextLine();
+            if (!curValue.equals(""))
+                editedBuyer.setName(curValue);
+
+            System.out.print("Чек: " +
+                    editedBuyer.getCheckNumber() +
+                    "\nНовое значение: ");
+            curValue = sc.nextLine();
+            if (!curValue.equals(""))
+                editedBuyer.setCheckNumber(curValue);
+
+            System.out.print("Телефон: " +
+                    editedBuyer.getPhone() +
+                    "\nНовое значение: ");
+            curValue = sc.nextLine();
+            if (!curValue.equals(""))
+                editedBuyer.setPhone(curValue);
+            if (buyersModel.save()) {
+                System.out.println("Данные покупателя с id=" + curId + " отредактированы.");
+                return true;
+            }
+
+        } catch (Exception ex) {
+            System.out.println("Ошибка при редактировании данных покупателя.\n" + ex.toString());
+            return false;
+        }
+        return false;
+    }
+
     // методы для обработки меню - Игрушки
     public void ToysShowTableAll() {
         // форимрование списка игрушек, вывод в консоль
