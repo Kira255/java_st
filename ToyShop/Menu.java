@@ -22,6 +22,17 @@ public class Menu {
     private Scanner sc;
     DateTimeFormatter formatter; // формат для даты и времени
 
+    // методы для обработки меню - Розыгрыш призов
+    public void PrizesToAwardShowAll() {
+        // разыгранные призы
+        DrawMod drawingModel = new DrawMod();
+        if (drawingModel.loadPrizesToAward()) {
+            drawingModel.ShowTablePrizesToAward();
+        }
+        ReturnToPrevPos();
+
+    }
+
     public Menu() {
         prevPos = "";
         choice = "";
