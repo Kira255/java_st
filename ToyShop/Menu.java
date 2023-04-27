@@ -49,4 +49,8 @@ public class Menu {
         this.newPos = newPos;
     }
 
+    public String getChoice() {
+        return choice;
+    }
+
 }
