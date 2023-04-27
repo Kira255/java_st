@@ -22,6 +22,17 @@ public class Menu {
     private Scanner sc;
     DateTimeFormatter formatter; // формат для даты и времени
 
+    // методы для обработки меню - Покупатели
+    public void BuyersShowTableAll() {
+        BuyerMod buyersModel = new BuyerMod();
+        if (buyersModel.load()) {
+            BuyersView buyersView = new BuyersView(buyersModel.getBuyersAll());
+            buyersView.ShowTable();
+        }
+        ReturnToPrevPos();
+        showBuyersMenu();
+    }
+
     // методы для обработки меню - Игрушки
     public void ToysShowTableAll() {
         // форимрование списка игрушек, вывод в консоль
@@ -178,11 +189,11 @@ public class Menu {
     public boolean PrizeSetAsAwarded() {
         // показать все разыгранные призы
         PrizesToAwardShowAll();
-        System.out.print("Введите id разыгранного приза, для смены статуса на Вручен: ");
+        System.out.print("Введите id разыгранного приза: ");
         try {
             int curId = Integer.parseInt(sc.nextLine());
 
-            System.out.print("Введите дату, время вручения (Enter - текущая. пример: 06.07.2023 15:10): ");
+            System.out.print("Введите дату, время вручения (шаблон: 06.07.2023 15:10): ");
             String curValue = sc.nextLine();
             LocalDateTime curDate;
             if (curValue.equals("")) {
