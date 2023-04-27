@@ -41,4 +41,8 @@ public class Menu {
         newPos = "";
     }
 
+    public void setNewPos(String newPos) {
+        this.newPos = newPos;
+    }
+
 }
