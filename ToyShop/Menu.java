@@ -22,6 +22,13 @@ public class Menu {
     private Scanner sc;
     DateTimeFormatter formatter; // формат для даты и времени
 
+    public void showProgramGreeting() {
+        System.out.println();
+        String s1 = "Розыгрыш призов в магазине игрушек";
+        System.out.println(s1);
+        System.out.println("-".repeat(s1.length()));
+    }
+
     // методы для обработки меню - Покупатели
     public void BuyersShowTableAll() {
         BuyerMod buyersModel = new BuyerMod();
