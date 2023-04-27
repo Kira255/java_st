@@ -41,6 +41,31 @@ public class Menu {
             return false;
         }
 
+        int curId = buyersModel.getNewId();
+        System.out.print("ФИО: ");
+        try {
+            String curFullName = sc.nextLine();
+            System.out.print("Номер чека: ");
+            String curCheckNumber = sc.nextLine();
+            System.out.print("Номер телефона: ");
+            String curPhone = sc.nextLine();
+            Buyer curBuyer = new Buyer(curId, curFullName, curCheckNumber,
+                    curPhone);
+            buyersModel.add(curBuyer);
+        } catch (Exception ex) {
+            System.out.println("Ошибка при вводе данных о покупателе.\n" + ex.toString());
+            return false;
+        }
+
+        if (buyersModel.save()) {
+            System.out.println("Новый покупатель успешно добавлен!");
+        } else {
+            System.out.println("Ошибка при добавлении нового покупателя.");
+            return false;
+        }
+        return true;
+    }
+
     // методы для обработки меню - Игрушки
     public void ToysShowTableAll() {
         // форимрование списка игрушек, вывод в консоль
