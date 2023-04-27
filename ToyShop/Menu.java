@@ -31,6 +31,14 @@ public class Menu {
         }
         ReturnToPrevPos();
 
+        public boolean PrizeAddNew() {
+            DrawMod drawingModel = new DrawMod();
+            if (drawingModel.PrizesToAwardAddNew())
+                return true;
+            return false;
+        }
+
+        
     }
 
     public Menu() {
