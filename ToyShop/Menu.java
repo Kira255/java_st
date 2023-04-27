@@ -22,6 +22,166 @@ public class Menu {
     private Scanner sc;
     DateTimeFormatter formatter; // формат для даты и времени
 
+    public void run() {
+        showProgramGreeting();
+
+        // меню
+        sc = new Scanner(System.in);
+        while (true) {
+            ShowNewChoice = true;
+            // выбор пункта из меню
+            if (getChoice() != "") {
+                if (getPrevPos() != "") {
+                    setNewPos((getPrevPos() + "," +
+                            getChoice()));
+                } else {
+                    setNewPos(getChoice());
+                }
+            } else {
+                if (getPrevPos() != "") {
+                    setNewPos(getPrevPos());
+                } else {
+                    setNewPos("");
+                }
+            }
+            if (getChoice().equals("0")) {
+                // переход в главное меню
+                showMainMenu();
+            } else if (getChoice().equals("X")) {
+                // выход из программы
+                showProgramExit();
+                return;
+            } else {
+                switch (getNewPos()) {
+                    case (""): // главное меню
+                        showMainMenu();
+                        break;
+
+                    // меню Покупатели
+                    case ("1"): // просмотор меню
+                        showBuyersMenu();
+                        break;
+
+                    case ("1,1"): // просмотор таблицы
+                        BuyersShowTableAll();
+                        break;
+
+                    case ("1,2"): // добавление
+                        if (BuyerAddNew()) {
+                            BuyersShowTableAll();
+                        } else {
+                            setChoice("");
+                            ShowNewChoice = false;
+                        }
+                        break;
+
+                    case ("1,3"): // редактирование
+                        if (BuyerEdit()) {
+                            BuyersShowTableAll();
+                        } else {
+                            setChoice("");
+                            ShowNewChoice = false;
+                        }
+                        break;
+
+                    case ("1,4"): // удаление
+                        if (BuyerDeleteById()) {
+                            BuyersShowTableAll();
+                        } else {
+                            setChoice("");
+                            ShowNewChoice = false;
+                        }
+                        break;
+
+                    // меню Игрушки
+                    case ("2"): // просмотор меню
+                        showToysMenu();
+                        break;
+
+                    case ("2,1"): // просмотор таблицы
+                        ToysShowTableAll();
+                        break;
+
+                    case ("2,2"): // добавление
+                        if (ToyAddNew() == true) {
+                            ToysShowTableAll();
+                        } else {
+                            setChoice("");
+                            ShowNewChoice = false;
+                        }
+                        break;
+
+                    case ("2,3"): // редактирование
+                        if (ToyEdit()) {
+                            ToysShowTableAll();
+                        } else {
+                            setChoice("");
+                            ShowNewChoice = false;
+                        }
+                        break;
+
+                    case ("2,4"): // удаление
+                        if (ToyDeleteById()) {
+                            ToysShowTableAll();
+                        } else {
+                            setChoice("");
+                            ShowNewChoice = false;
+                        }
+                        break;
+
+                    // меню Розыгрыш призов
+                    case ("3"): // просмотор меню
+                        showDrawingMenu();
+                        break;
+
+                    case ("3,1"): // просмотор разыгранных призов
+                        PrizesToAwardShowAll();
+                        showDrawingMenu();
+                        break;
+
+                    case ("3,2"): // следующий розыгрыш приза
+                        if (PrizeAddNew()) {
+                            PrizesToAwardShowAll();
+                            showDrawingMenu();
+                        } else {
+                            setChoice("");
+                            ShowNewChoice = false;
+                        }
+                        break;
+
+                    case ("3,3"): // отметка - приз разыгран
+                        if (PrizeSetAsAwarded()) {
+                            PrizesAwardedShowAll();
+                        } else {
+                            setChoice("");
+                            ShowNewChoice = false;
+                        }
+                        break;
+
+                    case ("3,4"): // просмотор врученных призов
+                        PrizesAwardedShowAll();
+                        break;
+
+                    default:
+                        showMenuItemNotFound();
+                        setChoice("");
+                        ShowNewChoice = false;
+                        break;
+                }
+            }
+
+            if (ShowNewChoice) {
+                System.out.printf("Выберите пункт меню: ");
+                try {
+                    setChoice(sc.nextLine().trim());
+                } catch (NoSuchElementException exception) {
+                    System.out.println("Пункт меню не выбран");
+                    setChoice("");
+                }
+            }
+        }
+    }
+
     public void showProgramGreeting() {
         System.out.println();
         String s1 = "Розыгрыш призов в магазине игрушек";
