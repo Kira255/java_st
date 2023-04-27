@@ -78,6 +78,11 @@ public class Menu {
         setPrevPos(getNewPos());
     }
 
+    public void showProgramExit() {
+        System.out.println();
+        System.out.println("Завершение работы");
+    }
+
     // методы для обработки меню - Покупатели
     public void BuyersShowTableAll() {
         BuyerMod buyersModel = new BuyerMod();
