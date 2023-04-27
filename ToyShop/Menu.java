@@ -35,6 +35,42 @@ public class Menu {
         showToysMenu();
     }
 
+    public boolean ToyAddNew() {
+        // добавление игрушки
+        ToyMod toysModel = new ToyMod();
+        if (!toysModel.load()) {
+            System.out.println("\nДобавление игрушки прервано.");
+            return false;
+        }
+
+        int curId = toysModel.getNewId();
+        System.out.println("\nДобавление игрушки.");
+        System.out.print("Название: ");
+        try {
+            String curName = sc.nextLine();
+            System.out.print("Количество: ");
+            int curCount = Integer.parseInt(sc.nextLine());
+            System.out.print("Цена: ");
+            float curPrice = Float.parseFloat(sc.nextLine());
+            System.out.print("Вес: ");
+            int curWeight = Integer.parseInt(sc.nextLine());
+            Toy curToy = new Toy(curId, curName, curCount,
+                    curPrice, curWeight);
+            toysModel.add(curToy);
+        } catch (Exception ex) {
+            System.out.println("Ошибка при вводе данных.\n" + ex.toString());
+            return false;
+        }
+
+        if (toysModel.save()) {
+            System.out.println("Новая игрушка добавлена.");
+        } else {
+            System.out.println("Ошибка при добавлении новой игрушки.");
+            return false;
+        }
+        return true;
+    }
+
     // методы для обработки меню - Розыгрыш призов
     public void PrizesToAwardShowAll() {
         // разыгранные призы
