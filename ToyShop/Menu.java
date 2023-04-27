@@ -41,6 +41,10 @@ public class Menu {
         newPos = "";
     }
 
+    public String getNewPos() {
+        return newPos;
+    }
+
     public void setNewPos(String newPos) {
         this.newPos = newPos;
     }
