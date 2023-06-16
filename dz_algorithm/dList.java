@@ -25,19 +25,6 @@ public class dList {
     }
 
     public void revert() {
-        /*
-         * Node node = head;
-         * 
-         * Node temp = head;
-         * head = tail;
-         * tail = temp;
-         * 
-         * while (node.next != null) {
-         * temp = node.next;
-         * node.next = node.prev;
-         * node.prev = temp;
-         * node = node.prev;
-         */
 
         Node node = head;
         while (node != null) {
